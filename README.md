@@ -8,7 +8,7 @@ plugin, with more on the way.
 
 | Plugin | What it adds | Tier |
 | --- | --- | --- |
-| [hermes-spider-tools](./plugins/hermes-spider-tools) | 🕷 [Spider Cloud](https://spider.cloud) web scraping, crawling, search, and remote browser automation as native Hermes tools | Core REST + Browser |
+| [hermes-spider-tools](./plugins/hermes-spider-tools) | 🕷 [Spider Cloud](https://spider.cloud?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools) web scraping, crawling, search, and remote browser automation as native Hermes tools | Core REST + Browser |
 
 > More plugins will be added here over time. Each lives in its own directory under `plugins/`
 > and is self-contained (its own `plugin.yaml`, `__init__.py`, and `README.md`).
@@ -29,7 +29,7 @@ hermes plugins enable hermes-spider-tools
 hermes
 ```
 
-Get a Spider Cloud key at <https://spider.cloud/api-keys> — step 1 prompts for it. Inside Hermes,
+Get a Spider Cloud key at <https://spider.cloud/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools> — step 1 prompts for it. Inside Hermes,
 run `/plugins` to confirm it loaded, then `/spider status`.
 
 No GitHub remote yet? Install from a local clone instead — `cp -r plugins/hermes-spider-tools
@@ -40,7 +40,7 @@ No GitHub remote yet? Install from a local clone instead — `cp -r plugins/herm
 
 ### 🕸️ Web scraping & crawling — [hermes-spider-tools](./plugins/hermes-spider-tools)
 
-Gives the agent first-class access to [Spider Cloud](https://spider.cloud). Two tool tiers:
+Gives the agent first-class access to [Spider Cloud](https://spider.cloud?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools). Two tool tiers:
 
 - **Core** — stateless REST tools: `spider_scrape`, `spider_crawl`, `spider_search`,
   `spider_links`, `spider_screenshot`, `spider_unblocker`, `spider_transform`, and

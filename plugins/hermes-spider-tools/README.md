@@ -1,7 +1,7 @@
 # hermes-spider-tools
 
 Native [Hermes Agent](https://github.com/NousResearch/hermes) tools that expose
-[Spider Cloud](https://spider.cloud) scraping, crawling, search, screenshot, and
+[Spider Cloud](https://spider.cloud?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools) scraping, crawling, search, screenshot, and
 browser-automation capabilities. Ported from the
 [`pi-spider-tools`](https://www.npmjs.com/package/@spider-cloud/pi-spider-tools) Pi extension.
 
@@ -62,7 +62,7 @@ hermes plugins enable hermes-spider-tools
 hermes
 ```
 
-Get a key at <https://spider.cloud/api-keys> — step 1 prompts for it (or set `SPIDER_API_KEY` /
+Get a key at <https://spider.cloud/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools> — step 1 prompts for it (or set `SPIDER_API_KEY` /
 `config.yaml`, see [Configuration](#configuration)). Confirm with `/plugins`, then
 `/spider status`.
 
@@ -109,7 +109,7 @@ environment in any of these ways:
 - Add `SPIDER_API_KEY=sk-...` to `~/.hermes/.env` yourself (Hermes loads it at startup).
 - Export it inline: `SPIDER_API_KEY=sk-... hermes`.
 
-Get a key at <https://spider.cloud/api-keys>.
+Get a key at <https://spider.cloud/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools>.
 
 ## Commands
 
@@ -147,7 +147,7 @@ Because `register(ctx)` runs at startup, restart Hermes after changing plugin **
   fleet handshake, not a plugin bug — it reproduces with the bare `spider-browser` SDK. Retry, or
   check fleet availability / your plan for your region.
 
-See per-endpoint parameter details at <https://spider.cloud/docs/api>.
+See per-endpoint parameter details at <https://spider.cloud/docs/api?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools>.
 
 ## License
 
