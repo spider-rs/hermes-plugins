@@ -1,9 +1,8 @@
 # hermes-spider-tools
 
-Native [Hermes Agent](https://github.com/NousResearch/hermes) tools that expose
+Native [Hermes Agent](https://hermes-agent.nousresearch.com/) tools that expose
 [Spider Cloud](https://spider.cloud?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools) scraping, crawling, search, screenshot, and
-browser-automation capabilities. Ported from the
-[`pi-spider-tools`](https://www.npmjs.com/package/@spider-cloud/pi-spider-tools) Pi extension.
+browser-automation capabilities.
 
 It ships **two tool tiers**:
 

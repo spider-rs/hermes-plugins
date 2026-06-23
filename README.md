@@ -1,6 +1,6 @@
 # 🧩 Hermes Plugins
 
-A collection of plugins for the [Hermes Agent](https://github.com/NousResearch/hermes) — native
+A collection of plugins for the [Hermes Agent](https://hermes-agent.nousresearch.com/) — native
 tools, commands, and hooks that run in-process inside Hermes. This repo currently ships one
 plugin, with more on the way.
 
@@ -15,7 +15,7 @@ plugin, with more on the way.
 
 ## 🚀 Quick start
 
-Requires the [Hermes Agent](https://github.com/NousResearch/hermes).
+Requires the [Hermes Agent](https://hermes-agent.nousresearch.com/).
 
 ```bash
 # 1. install (clones into ~/.hermes/plugins, copies config.yaml, prompts for the API key)
