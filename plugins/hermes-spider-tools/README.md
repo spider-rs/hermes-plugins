@@ -50,46 +50,25 @@ Stateful: `spider_browser_open` returns a `session_id` that the other tools take
 
 ## Install
 
-**From GitHub (recommended).** `hermes plugins install` takes a Git source; this plugin lives in
-a subdirectory of a monorepo, so use the subdir form. It clones, copies `config.yaml.example` →
-`config.yaml`, and masked-prompts for `SPIDER_API_KEY`:
-
 ```bash
-hermes plugins install <owner>/hermes-plugins/plugins/hermes-spider-tools
-~/.hermes/hermes-agent/venv/bin/pip install spider-browser   # browser tier only
+# 1. install (clones into ~/.hermes/plugins, copies config.yaml, prompts for the API key)
+hermes plugins install spider-rs/hermes-plugins/plugins/hermes-spider-tools
+
+# 2. browser tier only — add the SDK to Hermes' environment
+~/.hermes/hermes-agent/venv/bin/pip install spider-browser
+
+# 3. enable, then launch
 hermes plugins enable hermes-spider-tools
 hermes
 ```
 
-**Local (dev).** Copy or symlink the folder into the Hermes plugins dir instead:
-
-```bash
-cp -r plugins/hermes-spider-tools ~/.hermes/plugins/
-cp ~/.hermes/plugins/hermes-spider-tools/config.yaml.example \
-   ~/.hermes/plugins/hermes-spider-tools/config.yaml      # then edit it
-~/.hermes/hermes-agent/venv/bin/pip install spider-browser   # browser tier only
-hermes plugins enable hermes-spider-tools
-```
-
-`hermes plugins install` is **Git only** (no PyPI fetch). See the
-[repo README](../../README.md#-installing--distributing) for the PyPI entry-point alternative and
-the full source-precedence rules. Inside Hermes, confirm it loaded with `/plugins`, then
+Get a key at <https://spider.cloud/api-keys> — step 1 prompts for it (or set `SPIDER_API_KEY` /
+`config.yaml`, see [Configuration](#configuration)). Confirm with `/plugins`, then
 `/spider status`.
 
-> **Config & key:** `config.yaml` is the primary source (see [Configuration](#configuration)).
-> `hermes plugins install <git-url>` copies `config.yaml.example` → `config.yaml` and
-> masked-prompts for `SPIDER_API_KEY` automatically; the copy-then-`enable` workflow above does
-> not, so copy the example and edit it (or set the key in the environment) yourself.
-
-### Project-local plugin
-
-Place this directory at `your-project/.hermes/plugins/hermes-spider-tools/` and enable project
-plugins (this executes the plugin's Python inside Hermes — only do it for trusted code):
-
-```bash
-export HERMES_ENABLE_PROJECT_PLUGINS=true
-hermes plugins enable hermes-spider-tools
-```
+From a local clone instead of GitHub — `cp -r plugins/hermes-spider-tools ~/.hermes/plugins/`,
+copy `config.yaml.example` → `config.yaml`, then run steps 2–3. Project-local and PyPI installs
+are in the [repo README](../../README.md#-other-ways-to-install--distribute).
 
 ## Configuration
 

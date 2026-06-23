@@ -15,42 +15,26 @@ plugin, with more on the way.
 
 ## 🚀 Quick start
 
-Requires the [Hermes Agent](https://github.com/NousResearch/hermes). Hermes discovers personal
-plugins under `~/.hermes/plugins/`, and discovery alone is not enough — plugins must be enabled.
+Requires the [Hermes Agent](https://github.com/NousResearch/hermes).
 
 ```bash
-# install a plugin for everyday use
-cp -r plugins/hermes-spider-tools ~/.hermes/plugins/
+# 1. install (clones into ~/.hermes/plugins, copies config.yaml, prompts for the API key)
+hermes plugins install spider-rs/hermes-plugins/plugins/hermes-spider-tools
+
+# 2. browser tier only — add the SDK to Hermes' environment
+~/.hermes/hermes-agent/venv/bin/pip install spider-browser
+
+# 3. enable, then launch
 hermes plugins enable hermes-spider-tools
 hermes
-
-# inside Hermes
-/plugins
 ```
 
-> Prefer a one-command install from GitHub, or packaging for PyPI? See
-> [Installing & distributing](#-installing--distributing).
+Get a Spider Cloud key at <https://spider.cloud/api-keys> — step 1 prompts for it. Inside Hermes,
+run `/plugins` to confirm it loaded, then `/spider status`.
 
-Each plugin's **primary** configuration is its own gitignored `config.yaml` (copied from the
-tracked `config.yaml.example` in the plugin folder); environment variables are the **fallback**.
-See the [plugin README](./plugins/hermes-spider-tools/README.md#configuration) for the full key
-reference. The quickest start is still to pass the key inline via the env fallback:
-
-```bash
-SPIDER_API_KEY=sk-... hermes
-```
-
-To avoid typing it each time, keep it in a gitignored `.env` and let
-[direnv](https://direnv.net) load it automatically when you enter the directory:
-
-```bash
-brew install direnv
-echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc   # then open a new terminal
-
-echo 'SPIDER_API_KEY=sk-...' > .env             # gitignored
-printf 'dotenv\n' > .envrc                       # already present in this repo
-direnv allow
-```
+No GitHub remote yet? Install from a local clone instead — `cp -r plugins/hermes-spider-tools
+~/.hermes/plugins/`, then steps 2–3. Other routes (project-local, PyPI) are in
+[Other ways to install](#-other-ways-to-install--distribute).
 
 ## 🛠️ Plugin use cases
 
@@ -68,49 +52,21 @@ Gives the agent first-class access to [Spider Cloud](https://spider.cloud). Two 
 Manage them with the `/spider` and `/spider-browser` commands. See the
 [plugin README](./plugins/hermes-spider-tools/README.md) for the full tool reference.
 
-## 📥 Installing & distributing
+## 📦 Other ways to install & distribute
 
-Hermes discovers plugins from four sources; later ones override earlier on a name clash:
-**bundled** (ships with Hermes) → **user** (`~/.hermes/plugins/`) → **project**
-(`./.hermes/plugins/`, opt-in via `HERMES_ENABLE_PROJECT_PLUGINS=1`) → **pip** (packages exposing
-the `hermes_agent.plugins` entry point). Discovery never auto-enables — always `hermes plugins
-enable <name>` afterward.
+The [Quick start](#-quick-start) covers the common case. Other routes:
 
-There are three ways to get a plugin onto a machine:
+- **Project-local:** drop a plugin in a repo's `./.hermes/plugins/` and enable project plugins
+  with `HERMES_ENABLE_PROJECT_PLUGINS=1` (this runs the plugin's Python — only for trusted code).
+- **Update a GitHub install:** `hermes plugins update hermes-spider-tools`.
+- **PyPI:** package a plugin with a `hermes_agent.plugins` entry point, `pip install` it into
+  Hermes' environment, then `hermes plugins enable`. This is the only route that auto-installs a
+  plugin's Python dependencies; it skips the install-time key prompt and `*.example` copy (those
+  are Git-install only).
 
-- **Local (dev / this repo):** copy or symlink the plugin into `~/.hermes/plugins/` (see
-  [Local development](#-local-development)). Best while iterating.
-
-- **From GitHub (recommended for sharing).** `hermes plugins install` takes a **Git** source — a
-  full URL or `owner/repo` shorthand, with an optional **subdirectory** for monorepos like this
-  one. It clones, copies each `*.example` → real file, prompts for `requires_env` secrets, and
-  offers to enable:
-
-  ```bash
-  hermes plugins install <owner>/hermes-plugins/plugins/hermes-spider-tools
-  hermes plugins update hermes-spider-tools   # pull latest later
-  ```
-
-  (`hermes plugins install` does **not** fetch from PyPI — Git only.)
-
-- **From PyPI (packaged).** Restructure a plugin as a pip package that declares the entry point,
-  publish it, then install it into Hermes' environment yourself:
-
-  ```toml
-  # pyproject.toml
-  [project.entry-points."hermes_agent.plugins"]
-  hermes-spider-tools = "hermes_spider_tools"
-  ```
-
-  ```bash
-  ~/.hermes/hermes-agent/venv/bin/pip install hermes-spider-tools
-  hermes plugins enable hermes-spider-tools
-  ```
-
-  Trade-off: the pip route is the only one that auto-installs a plugin's third-party Python
-  dependencies (via the package's `dependencies`); the local and GitHub routes do **not**, so a
-  tier like the Spider browser tier still needs `pip install spider-browser` separately. The pip
-  route also skips the `requires_env` prompt and `*.example` copy (those run only on Git install).
+Discovery order, later overriding earlier: **bundled → user (`~/.hermes/plugins/`) → project
+(`./.hermes/plugins/`) → pip entry points.** Discovery never auto-enables — always `hermes plugins
+enable <name>`.
 
 ## 🧑‍💻 Local development
 
