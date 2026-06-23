@@ -1,0 +1,31 @@
+name: hermes-spider-tools
+version: "0.1.0"
+description: >-
+  Spider Cloud web scraping, crawling, search, screenshot, and remote
+  browser automation as native Hermes tools.
+author: Spider Cloud
+provides_tools:
+  - spider_scrape
+  - spider_crawl
+  - spider_search
+  - spider_links
+  - spider_screenshot
+  - spider_unblocker
+  - spider_transform
+  - spider_get_credits
+  - spider_browser_open
+  - spider_browser_navigate
+  - spider_browser_click
+  - spider_browser_fill
+  - spider_browser_screenshot
+  - spider_browser_content
+  - spider_browser_evaluate
+  - spider_browser_wait_for
+  - spider_browser_close
+provides_hooks:
+  - on_session_end
+requires_env:
+  - name: SPIDER_API_KEY
+    description: API key for Spider Cloud (used by every tool).
+    url: https://spider.cloud/api-keys
+    secret: true

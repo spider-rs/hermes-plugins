@@ -1,0 +1,36 @@
+# hermes-spider-tools configuration.
+#
+# Copy this file to config.yaml (in this same folder) and edit in place:
+#     cp config.yaml.example config.yaml
+# `hermes plugins install` does this copy for you. config.yaml is gitignored;
+# only this .example is tracked, so local endpoints and secrets never get committed.
+#
+# Precedence for EVERY setting: config.yaml (primary) -> environment variable
+# (fallback) -> built-in default. Anything left commented falls through to env/default.
+
+# --- Credentials (required) -------------------------------------------------
+# Spider Cloud API key. Get one at https://spider.cloud/api-keys.
+# Choose ONE approach:
+#
+#   api_key: "sk-your-key-here"     # store the key directly (this file is gitignored)
+#
+#   api_key_env: SPIDER_API_KEY     # OR name an env var to read it from — keeps the
+#                                   # secret out of every file (recommended). This is
+#                                   # the env var `hermes plugins install` prompts for.
+api_key_env: SPIDER_API_KEY
+
+# --- Endpoints (optional) ---------------------------------------------------
+# Core REST base URL. Env fallback: SPIDER_API_URL.
+# api_url: https://api.spider.cloud
+
+# Browser fleet WebSocket. Env fallback: SPIDER_BROWSER_URL.
+# browser_server_url: wss://browser.spider.cloud
+
+# --- Behavior (optional) ----------------------------------------------------
+# Cap how many results the core tools hand back to the model. Default 10.
+# max_results: 10
+
+# Tools to disable by default. The /spider enable|disable command overrides this
+# live at runtime (the first toggle is seeded from this list).
+# disabled_tools:
+#   - spider_unblocker

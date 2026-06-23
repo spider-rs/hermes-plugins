@@ -1,0 +1,33 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Plugin-local config (gitignored; only the .example is tracked)
+config.yaml
+**/config.yaml
+
+# direnv
+.direnv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+.venv/
+.uv/
+
+# Tooling caches (uv / ruff / pytest)
+.ruff_cache/
+.pytest_cache/
+
+# Packaging artifacts (PyPI build/distribution)
+build/
+dist/
+*.egg-info/
+
+# Atomic-write temp files (settings.py writes <file>.<pid>.tmp before rename)
+*.tmp
+
+# macOS
+.DS_Store
