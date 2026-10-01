@@ -21,7 +21,6 @@ It ships **two tool tiers**:
 | `spider_search` | `POST /search` | Web search, optionally fetching each result's content. |
 | `spider_links` | `POST /links` | Collect links without returning page content. |
 | `spider_screenshot` | `POST /screenshot` | Capture a page screenshot (base64 PNG in the payload). |
-| `spider_unblocker` | `POST /unblocker` | Fetch anti-bot-protected pages via the stealth unblocker. |
 | `spider_transform` | `POST /transform` | Convert raw HTML to markdown/text (no web request). |
 | `spider_get_credits` | `GET /data/credits` | Check remaining credit balance (free). |
 

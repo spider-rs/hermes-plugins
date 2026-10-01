@@ -23,7 +23,6 @@ _CORE_TOOLS: list[tuple[dict, Callable[..., str]]] = [
     (schemas.SEARCH, tools.handle_search),
     (schemas.LINKS, tools.handle_links),
     (schemas.SCREENSHOT, tools.handle_screenshot),
-    (schemas.UNBLOCKER, tools.handle_unblocker),
     (schemas.TRANSFORM, tools.handle_transform),
     (schemas.GET_CREDITS, tools.handle_get_credits),
 ]

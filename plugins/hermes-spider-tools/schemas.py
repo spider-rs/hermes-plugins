@@ -41,8 +41,9 @@ SCRAPE = _schema(
     "spider_scrape",
     "Scrape a single URL via Spider Cloud and return its content in the requested format. "
     "Faster and cheaper than crawling when you only need one page. Use spider_crawl to follow "
-    "links across a site. If SPIDER_API_KEY is missing, report the configuration error instead "
-    "of retrying.",
+    "links across a site. If a page is blocked by anti-bot protection, retry with stealth: true "
+    "and proxy_enabled: true. If SPIDER_API_KEY is missing, report the configuration error "
+    "instead of retrying.",
     {
         "url": {"type": "string", "description": "The URL to scrape."},
         "return_format": _RETURN_FORMAT,
@@ -58,6 +59,10 @@ SCRAPE = _schema(
         "proxy_enabled": {
             "type": "boolean",
             "description": "Route the request through Spider's premium proxies.",
+        },
+        "stealth": {
+            "type": "boolean",
+            "description": "Use stealth mode for pages behind anti-bot protection.",
         },
         "cache": {
             "type": "boolean",
@@ -164,22 +169,6 @@ SCREENSHOT = _schema(
             "description": "Capture the full scrollable page instead of the viewport.",
         },
         "request": _REQUEST_MODE,
-    },
-    ["url"],
-)
-
-UNBLOCKER = _schema(
-    "spider_unblocker",
-    "Fetch content from sites protected by anti-bot systems using Spider's stealth unblocker. "
-    "Use only when a normal scrape is blocked; it costs more. If SPIDER_API_KEY is missing, "
-    "report the configuration error instead of retrying.",
-    {
-        "url": {"type": "string", "description": "The URL to fetch through the unblocker."},
-        "return_format": _RETURN_FORMAT,
-        "proxy_enabled": {
-            "type": "boolean",
-            "description": "Route through Spider's premium proxies.",
-        },
     },
     ["url"],
 )

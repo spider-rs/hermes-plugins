@@ -16,7 +16,6 @@ CORE_TOOL_NAMES: tuple[str, ...] = (
     "spider_search",
     "spider_links",
     "spider_screenshot",
-    "spider_unblocker",
     "spider_transform",
     "spider_get_credits",
 )

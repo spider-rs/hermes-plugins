@@ -35,7 +35,6 @@ handle_scrape = _post_handler("/scrape", "url")
 handle_crawl = _post_handler("/crawl", "url")
 handle_links = _post_handler("/links", "url")
 handle_screenshot = _post_handler("/screenshot", "url")
-handle_unblocker = _post_handler("/unblocker", "url")
 handle_search = _post_handler("/search", "search")
 
 
