@@ -43,7 +43,7 @@ No GitHub remote yet? Install from a local clone instead — `cp -r plugins/herm
 Gives the agent first-class access to [Spider Cloud](https://spider.cloud?utm_source=github&utm_medium=readme&utm_campaign=hermes-spider-tools). Two tool tiers:
 
 - **Core** — stateless REST tools: `spider_scrape`, `spider_crawl`, `spider_search`,
-  `spider_links`, `spider_screenshot`, `spider_unblocker`, `spider_transform`, and
+  `spider_links`, `spider_screenshot`, `spider_transform`, and
   `spider_get_credits`. Pure standard library — no dependencies.
 - **Browser** — stateful remote-browser automation backed by Spider's pre-warmed fleet:
   `spider_browser_open`/`navigate`/`click`/`fill`/`screenshot`/`content`/`evaluate`/`wait_for`/`close`.

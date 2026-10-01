@@ -33,4 +33,4 @@ api_key_env: SPIDER_API_KEY
 # Tools to disable by default. The /spider enable|disable command overrides this
 # live at runtime (the first toggle is seeded from this list).
 # disabled_tools:
-#   - spider_unblocker
+#   - spider_crawl
